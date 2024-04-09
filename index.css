@@ -213,7 +213,7 @@ section#section1 {
 
 @keyframes imgAnimation {
     0% {
-        transform: translateX(-600px)
+        transform: translateX(-50vw)
     }
 
     100% {
@@ -223,7 +223,7 @@ section#section1 {
 
 @keyframes textAnimation {
     0% {
-        transform: translateX(600px)
+        transform: translateX(50vw)
     }
 
     100% {
@@ -317,7 +317,7 @@ section#section1 {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 100%;
+    height: 130vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -415,6 +415,10 @@ section#section1 {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+}
+
+.gallery-header img {
+    cursor: pointer;
 }
 
 .carousel-container {
@@ -536,7 +540,7 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .footer-content {
@@ -548,8 +552,7 @@ footer {
 
 .social-icons {
     display: flex;
-    gap: 5px;
-    margin-bottom: 10px;
+    gap: 20px;
 }
 
 
@@ -577,11 +580,14 @@ footer {
         scroll-behavior: smooth;
     }
 
+    .iconimage {
+        flex-direction: column;
+    }
+
     .footer-content,
     .iconimage img {
         width: 100%;
         max-width: auto;
-        padding: 0 10px;
         text-align: center;
     }
 
@@ -594,6 +600,7 @@ footer {
         justify-content: flex-start;
         gap: 10px;
         padding: 10px;
+        width: 100%;
     }
 
     .logos img {
@@ -604,9 +611,9 @@ footer {
     .hamburger-menu {
         display: block;
         position: absolute;
-        left: 350px;
-        top: 20px;
-        z-index: 1000;
+        right: 25px;
+        top: 15px;
+        z-index: 10000;
     }
 
     .hamburger-menu i {
@@ -614,12 +621,26 @@ footer {
         color: white;
     }
 
-
-    .navbar a {
-        display: none;
+    .navbar {
+        position: fixed;
+        left: -100%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: black;
+        padding: 200px 10px 10px 10px;
+        text-align: left;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        transition: left ease-in .5s;
     }
 
-    .navbar.active a {
+    .navbar.active {
+        left: 50%;
+        transition: left ease-in .5s;
+    }
+
+    .navbar a {
         display: block;
         text-align: center;
     }
@@ -684,6 +705,8 @@ footer {
         flex-direction: column;
         justify-content: flex-start;
         padding-top: 50px;
+        height: auto;
+        padding-bottom: 190px;
     }
 
     #section2 .header {
@@ -700,10 +723,15 @@ footer {
     #section2 .slider-container-section2 {
         flex-direction: column;
         align-items: center;
+        padding: 0;
     }
 
     #section2 .image-container-section2 {
         margin-right: 0;
+    }
+
+    #section2 .info-container-section2 {
+        padding: 0;
     }
 
     #section2 .info-container-section2 #image-description-section2 {
@@ -722,7 +750,27 @@ footer {
 
     .image-container-section2 img {
         max-width: 100%;
-        height: auto;
+        height: 50vh;
+    }
+
+    @keyframes imgAnimation {
+        0% {
+            transform: translateX(-100vw)
+        }
+
+        100% {
+            transform: translateX(0)
+        }
+    }
+
+    @keyframes textAnimation {
+        0% {
+            transform: translateX(100vw)
+        }
+
+        100% {
+            transform: translateX(0)
+        }
     }
 
     .info-container-section2 {
@@ -750,60 +798,64 @@ footer {
         opacity: 0.6;
     }
 
+    .gallery-wrapper {
+        flex-direction: column;
+    }
+
+    .carousel-slide img {
+        width: 100vw;
+        height: auto;
+    }
+
+    #section3 {
+        height: 100%;
+    }
 
     .marquee {
         width: 100%;
-        height: max-content;
-    }
-
-    /* even out the elements */
-    .marquee p {
-        position: absolute;
-        width: min-content;
-        height: 50px;
-        transform: rotate(0deg);
+        height: 60px;
     }
 
     .marquee.left p {
-        bottom: 0;
-        right: 160%;
+        top: -75%;
+        left: -1200px;
+        bottom: auto;
         transform: rotate(0deg);
     }
 
     .marquee.right p {
-        top: 200px;
-        left: 160%;
-        writing-mode: horizontal-tb;
+        bottom: -50%;
+        left: 1200px;
+        top: auto;
         transform: rotate(0deg);
     }
 
     @keyframes marquee {
         0% {
-            right: 950px;
+            left: -1200px;
         }
 
         100% {
-            right: -950px
+            left: 1200px
         }
     }
 
     @keyframes marqueeReverse {
         0% {
-            left: 950px;
+            left: 1200px;
         }
 
         100% {
-            left: -900px
+            left: -1200px
         }
     }
 
-    /* would need to be adjusted depending on time */
     .marquee.left .marqueeone {
         animation: marquee 7s linear infinite
     }
 
     .marquee.left .marqueetwo {
-        animation: marquee 7s linear 2.8s infinite
+        animation: marquee 7s linear 3.5s infinite
     }
 
     .marquee.right .marqueeone {
@@ -811,7 +863,7 @@ footer {
     }
 
     .marquee.right .marqueetwo {
-        animation: marqueeReverse 7s linear 2.8s infinite
+        animation: marqueeReverse 7s linear 3.5s infinite
     }
 
     .marquee .marqueethree {

@@ -21,12 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
             behavior: 'smooth'
         });
         updateActiveNavLink(section.id);
+        if ($('.navbar').hasClass('active')) {
+            $('.navbar').removeClass('active');
+        }
     }
 
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            const targetId = this.getAttribute('href').substring(1); 
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             const index = Array.from(sections).indexOf(targetSection);
             goToSection(index);
@@ -43,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-$(document).ready(function() {
-    $('.hamburger-menu').click(function() {
+$(document).ready(function () {
+    $('.hamburger-menu').click(function () {
         $('.navbar').toggleClass('active');
     });
 });
@@ -68,20 +71,26 @@ $(document).ready(function () {
     $('#section2 .slider-tag').on('click', function () {
         var imgSrc = $(this).find('img:last-child').attr('src');
         $('#main-image-section2').attr('src', imgSrc);
-        $('#main-image-section2').removeClass('image-animation').promise().done(function() {
+        $('#main-image-section2').removeClass('image-animation').promise().done(function () {
             $('#main-image-section2').addClass('image-animation');
-            setTimeout(function() {
+            setTimeout(function () {
                 $('#main-image-section2').removeClass('image-animation');
-            },1000);
-          });
-        $('#image-name-section2').removeClass('text-animation').promise().done(function() {
+            }, 1000);
+        });
+        $('#image-name-section2').removeClass('text-animation').promise().done(function () {
             $('#image-name-section2').addClass('text-animation');
-            setTimeout(function() {
+            setTimeout(function () {
                 $('#image-name-section2').removeClass('text-animation');
-            },1000);
-          });
+            }, 1000);
+        });
+        $('#image-description-section2').removeClass('text-animation').promise().done(function () {
+            $('#image-description-section2').addClass('text-animation');
+            setTimeout(function () {
+                $('#image-description-section2').removeClass('text-animation');
+            }, 1000);
+        });
 
-        switch(imgSrc) {
+        switch (imgSrc) {
             case 'images/image013.png':
                 $('#image-name-section2').text('YASUO');
                 $('#image-description-section2').text(generateRandomWords(30));
@@ -129,3 +138,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     showSlide(currentSlide);
 });
 
+$('.gallery-header-img').click(function () {
+    window.scrollTo(0, window.scrollY + 200);
+});
