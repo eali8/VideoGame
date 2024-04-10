@@ -19,8 +19,11 @@ section {
     align-items: center;
     text-align: center;
     position: relative;
-}
+} 
 
+#section1 video {
+    width: 100vw;
+}
 
 .background-video .video-background {
     position: absolute;
