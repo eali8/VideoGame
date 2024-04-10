@@ -317,7 +317,7 @@ section#section1 {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 150vh;
+    height: 130vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -362,21 +362,21 @@ section#section1 {
 
 @keyframes marquee {
     0% {
-        bottom: 145%;
+        bottom: 190%;
     }
 
     100% {
-        bottom: -145%;
+        bottom: -190%
     }
 }
 
 @keyframes marqueeReverse {
     0% {
-        top: 145%;
+        top: 190%;
     }
 
     100% {
-        top: -145%;
+        top: -190%
     }
 }
 
@@ -386,7 +386,11 @@ section#section1 {
 }
 
 .marquee.left .marqueetwo {
-    animation: marquee 14s linear 7s infinite
+    animation: marquee 14s linear 4.7s infinite
+}
+
+.marquee.left .marqueethree {
+    animation: marquee 14s linear 9.4s infinite
 }
 
 .marquee.right .marqueeone {
@@ -394,7 +398,11 @@ section#section1 {
 }
 
 .marquee.right .marqueetwo {
-    animation: marqueeReverse 14s linear 7s infinite
+    animation: marqueeReverse 14s linear 4.7s infinite
+}
+
+.marquee.right .marqueethree {
+    animation: marqueeReverse 14s linear 9.4s infinite
 }
 
 .gallery-content {
@@ -419,8 +427,8 @@ section#section1 {
 }
 
 .carousel-slide img {
-    width: 75vw;
-    height: auto;
+    width: auto;
+    max-height: 80vh;
     display: none;
 }
 
@@ -562,7 +570,7 @@ footer {
 }
 
 /* Responsive adjustments for screens up to 768px wide */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
 
     body,
     html {
@@ -583,16 +591,6 @@ footer {
         text-align: center;
     }
 
-    #section1 {
-        height: min-content;
-        padding: 30px 0;
-    }
-
-    #section1 video {
-        width: 100vw;
-        transform: scale(1.3);
-    }
-
     .logos {
         position: absolute;
         top: 0;
@@ -601,7 +599,7 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         gap: 10px;
-        padding: 5px;
+        padding: 10px;
         width: 100%;
     }
 
@@ -614,7 +612,7 @@ footer {
         display: block;
         position: absolute;
         right: 25px;
-        top: 5px;
+        top: 15px;
         z-index: 10000;
     }
 
@@ -649,28 +647,16 @@ footer {
 
     .content-right {
         margin: auto;
-        top: 60px;
         left: 0;
         right: 0;
         transform: none;
-        width: 100%;
+        width: 50%;
+        max-width: 400px;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         z-index: 1000;
-        font-size: 15px;
-    }
-
-    .content-style {
-        width: auto;
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .content-time {
-        margin: 0;
-        font-size: 22px;
     }
 
     .content-right img {
@@ -678,6 +664,7 @@ footer {
         margin: 10px 0;
         display: none;
     }
+
 
     .carousel-slide img {
         display: block;
